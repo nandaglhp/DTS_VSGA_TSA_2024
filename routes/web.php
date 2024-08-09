@@ -4,6 +4,7 @@ use App\Http\Controllers\CRUDPhoto;
 use App\Http\Controllers\CRUDController;
 use App\Http\Controllers\PageControllerSatu;
 use App\Http\Controllers\pengajarController;
+use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -91,3 +92,8 @@ Route::resource('photos',CRUDPhoto::class)->except([
 Route::get('/selamat', function () {
     return view('hello',['name'=>'dino']);
 });
+
+Route::get('/greeting',[
+    WelcomeController::class,
+    'greeting'
+]);
