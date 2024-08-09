@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CRUDPhoto;
+use App\Http\Controllers\CRUDController;
 use App\Http\Controllers\PageControllerSatu;
 use App\Http\Controllers\pengajarController;
 use Illuminate\Support\Facades\Route;
@@ -73,3 +75,19 @@ Route::get('/tabel-pengajar',[pengajarController::class,'tabelPengajar']);
 Route::get('/blog-pengajar',[pengajarController::class,'blogPengajar']);
 
 Route::get('pasar-buah',[PageControllerSatu::class,'satu']);
+Route::resource('crud',CRUDController::class);
+
+Route::resource('photos',CRUDPhoto::class)->only([
+    'index',
+    'show'
+]);
+Route::resource('photos',CRUDPhoto::class)->except([
+    'create',
+    'store',
+    'update',
+    'destroy'
+]);
+
+Route::get('/selamat', function () {
+    return view('hello',['name'=>'dino']);
+});
