@@ -14,9 +14,9 @@ Route::get('/word', function () {
     return 'Hello Dunia';
 });
 
-Route::get('/about', function () {
-    return 'NIM: 2141720045';
-});
+// Route::get('/about', function () {
+//     return 'NIM: 2141720045';
+// });
 
 Route::get('/user/{name}', function ($name) {
     return 'Nama saya: '.$name;
@@ -34,3 +34,10 @@ Route::get('/kodebarang/{jenis?}{merek?}', function ($jk='k01', $mrk='nokia') {
     return "Kode barang $jk dan nama barang $mrk";
 });
 
+Route::get('/about', function () {
+    return view('about');
+})->name('about');
+
+Route::get('/tampil', function () {
+    return view('tampil');
+})->name('tampil');
