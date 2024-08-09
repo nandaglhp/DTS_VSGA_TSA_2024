@@ -41,3 +41,23 @@ Route::get('/about', function () {
 Route::get('/tampil', function () {
     return view('tampil');
 })->name('tampil');
+
+Route::get('/pesandisini', function () {
+    return '<h1>pesan disini</h1>';
+});
+
+Route::redirect('/contact-us', '/pesandisini');
+
+Route::prefix('/polinema')->group(function(){
+    Route::get('/dosen', function () {
+        return '<h1>daftar nama dosen</h1>';
+    });
+
+    Route::get('/tendik', function () {
+        return '<h1>daftar nama dosen</h1>';
+    });
+
+    Route::get('/jurusan', function () {
+        return '<h1>daftar nama jurusan</h1>';
+    });
+});
